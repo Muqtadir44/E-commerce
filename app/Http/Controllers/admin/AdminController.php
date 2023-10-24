@@ -23,7 +23,9 @@ class AdminController extends Controller
         $credentails = $request->only('email','password');
         if ($validator->passes()) {
             if(Auth::guard('admin')->attempt($credentails,$request->get('remember'))){
-                
+                return redirect()->route('admin.dashboard');
+            }else{
+                return redirect()->route('admin.login')->with('error','Invalid Email or Password');
             }
         }else{
             return redirect()->route('admin.login')
