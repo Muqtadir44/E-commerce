@@ -18,4 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/login',[AdminController::class,'admin_login'])->name('admin.login');
+
+Route::prefix('admin')->group(function(){
+    
+    Route::group(['middleware' => 'admin.guest'],function(){
+        
+        Route::get('/login',[AdminController::class,'admin_login'])->name('admin.login');
+
+    });
+
+        Route::group(['middleware' => 'admin.auth'],function(){
+
+    });
+    
+});
