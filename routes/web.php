@@ -24,7 +24,7 @@ Route::prefix('admin')->group(function(){
     Route::group(['middleware' => 'admin.guest'],function(){
 
         Route::get('/login',[AdminController::class,'admin_login'])->name('admin.login');
-        Route::get('/authenticate',[AdminController::class,'authenticate'])->name('admin.authenticate');
+        Route::post('/authenticate',[AdminController::class,'authenticate'])->name('admin.authenticate');
 
     });
 
