@@ -18,8 +18,9 @@
 				<section class="content">
 					<!-- Default box -->
 					<div class="container-fluid">
+                        <form action="" method="POST">						
 						<div class="card">
-							<div class="card-body">								
+							<div class="card-body">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="mb-3">
@@ -29,7 +30,7 @@
 									</div>
 									<div class="col-md-6">
 										<div class="mb-3">
-											<label for="email">Slug</label>
+											<label>Slug</label>
 											<input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">	
 										</div>
 									</div>
@@ -51,6 +52,7 @@
 							<a href="brands.html" class="btn btn-outline-dark ml-3">Cancel</a>
 						</div>
 					</div>
+                    </form>
 					<!-- /.card -->
 				</section>
 				<!-- /.content -->
