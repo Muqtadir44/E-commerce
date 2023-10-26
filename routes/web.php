@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function(){
             Route::get('/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
             Route::get('/logout',[DashboardController::class,'logout'])->name('admin.logout');
 
-            // ---Categories Route ---
+            // ---Categories Route's ---
             
             Route::get('/categories/create',[CategoryController::class,'create'])->name('categories.create');
 
@@ -53,6 +53,11 @@ Route::prefix('admin')->group(function(){
                 ]);
 
             })->name('getSlug');
+
+            
+
+            // ---Categories Route's End ---
+
     });
     
 });
