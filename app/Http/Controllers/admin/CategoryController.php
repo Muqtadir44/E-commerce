@@ -12,7 +12,7 @@ class CategoryController extends Controller
     }
 
     public function create(){
-
+        echo "create category page";
     }
 
     public function store(){
@@ -30,5 +30,5 @@ class CategoryController extends Controller
     public function delete(){
 
     }
-    
+
 }
