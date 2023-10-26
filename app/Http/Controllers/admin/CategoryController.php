@@ -34,7 +34,7 @@ class CategoryController extends Controller
 
             $category->save();
 
-            $request->session()->flash('success','Category Created Successfully');
+            // $request->session()->flash('success','Category Created Successfully');
 
             return response()->json([
                 'status'  => true,
