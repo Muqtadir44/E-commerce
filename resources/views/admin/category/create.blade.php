@@ -103,5 +103,20 @@
                 }
             })
         })
+
+        $('#name').change(function(){
+            var element = $(this);
+             $.ajax({
+                url: '{{route('getSlug')}}',
+                type: 'GET',
+                data: {title: element.val()},
+                dataType: 'json',
+                success: function(response){
+                    if (response['status'] == true) {
+                        $("#slug").val(response['slug']);
+                    }
+                } 
+            });
+        })
     </script>
 @endsection
