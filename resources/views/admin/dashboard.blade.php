@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Welcome Admin</h1>
-    
+    @php
+        $admin = Auth::guard('admin')->user();
+    @endphp
+    {{$admin->name}}
 </body>
 </html>
