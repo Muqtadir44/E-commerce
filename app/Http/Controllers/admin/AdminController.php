@@ -22,8 +22,17 @@ class AdminController extends Controller
 
         $credentails = $request->only('email','password');
         if ($validator->passes()) {
+
             if(Auth::guard('admin')->attempt($credentails,$request->get('remember'))){
-                return redirect()->route('admin.dashboard');
+                $admin = Auth::guard('admin')->user();
+
+                if ($admin->role == 'Admin') {
+                    return redirect()->route('admin.dashboard');
+                }else{
+                    Auth::guard('admin')->logout();
+                    return redirect()->route('admin.login')->with('error','Your Are not Authorized');
+                }
+
             }else{
                 return redirect()->route('admin.login')->with('error','Invalid Email or Password');
             }
@@ -33,4 +42,6 @@ class AdminController extends Controller
                 ->withInput($request->only('email'));
         }
     }
+
+   
 }
