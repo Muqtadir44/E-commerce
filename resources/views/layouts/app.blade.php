@@ -15,20 +15,6 @@
 		{{-- <link rel="stylesheet" href="css/adminlte.min.css"> --}}
 		{{-- <link rel="stylesheet" href="css/custom.css"> --}}
 	</head>
-	<body class="hold-transition login-page">
-		@yield('content')
-		<!-- ./wrapper -->
-		<!-- jQuery -->
-        <script src="{{asset('admin-assets/plugins/jquery/jquery.min.js')}}"></script>
-		{{-- <script src="plugins/jquery/jquery.min.js"></script> --}}
-		<!-- Bootstrap 4 -->
-        <script src="{{asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-		{{-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
-		<!-- AdminLTE App -->
-        <script src="{{asset('admin-assets/js/adminlte.min.js')}}"></script>
-		{{-- <script src="js/adminlte.min.js"></script> --}}
-		<!-- AdminLTE for demo purposes -->
-        <script src="{{asset('admin-assets/js/demo.js')}}"></script>
-		{{-- <script src="js/demo.js"></script> --}}
-	</body>
+    @yield('content')
+	
 </html>
