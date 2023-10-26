@@ -9,10 +9,15 @@ use App\Models\category;
 
 class CategoryController extends Controller
 {
-    public function index(){
-        $categories = category::orderBy('id','desc')->paginate(10);
-        // dd($categories);
-        // $data['categories'] = $categories;
+    public function index(Request $request){
+        $categories = category::latest();
+
+        if (!empty($request->get('search'))) {
+            $categories = $categories->where('name','like','%'.$request->get('search').'%');            
+        }        
+        
+        $categories = category::latest()->paginate(10);
+        
         return view('admin.category.all_categories',compact('categories'));
     }
 
