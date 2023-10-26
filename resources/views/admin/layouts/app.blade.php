@@ -170,5 +170,6 @@
         <script src="{{asset('admin-assets/js/adminlte.min.js')}}"></script>
 		<!-- AdminLTE for demo purposes -->
 		<script src="js/demo.js"></script>
+        @yield('custom_js')
 	</body>
 </html>

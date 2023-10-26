@@ -63,3 +63,8 @@
 				</section>
 				<!-- /.content -->
 @endsection
+@section('custom_js')
+    <script>
+        // alert('working');
+    </script>
+@endsection
