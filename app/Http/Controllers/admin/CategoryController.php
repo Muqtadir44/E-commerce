@@ -10,7 +10,7 @@ use App\Models\category;
 class CategoryController extends Controller
 {
     public function index(){
-        $categories = category::latest()->paginate(10);
+        $categories = category::orderBy('id','desc')->paginate(10);
         // dd($categories);
         // $data['categories'] = $categories;
         return view('admin.category.all_categories',compact('categories'));
