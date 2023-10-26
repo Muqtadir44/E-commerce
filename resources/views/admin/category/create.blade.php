@@ -27,13 +27,16 @@
 										<div class="mb-3">
 											<label for="name">Name</label>
 											<input type="text" name="name" id="name" class="form-control" placeholder="Name">	
-										</div>
+                                            <p id="name_msg"></p> 
+                                        </div>
 									</div>
 									<div class="col-md-6">
 										<div class="mb-3">
 											<label>Slug</label>
 											<input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">	
-										</div>
+                                            <p id="slug_msg"></p> 
+                                            
+                                        </div>
 									</div>
                                     <div class="col-md-6">
 										<div class="mb-3">
@@ -68,7 +71,27 @@
                 type: 'POST',
                 data: formdata.serializeArray(),
                 dataType: 'json',
-                success: function(data){
+                success: function(response){
+                    var errors = response['errors'];
+                    if (errors['name']) {
+                        $('#name').addClass('is-invalid')
+                        .siblings('p').addClass('invalid-feedback')
+                        .html(errors['name']);
+                    }else{
+                        $('#name').removeClass('is-invalid')
+                        .siblings('p').removeClass('invalid-feedback')
+                        .html("");
+                    }
+
+                    if (errors['slug']) {
+                        $('#slug').addClass('is-invalid')
+                        .siblings('p').addClass('invalid-feedback')
+                        .html(errors['slug']);
+                    }else{
+                        $('#slug').removeClass('is-invalid')
+                        .siblings('p').removeClass('invalid-feedback')
+                        .html("");
+                    }
 
                 }, error: function(jqXHR, exception){
                     console.log('something went wrong');
