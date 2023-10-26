@@ -33,7 +33,7 @@
 									<div class="col-md-6">
 										<div class="mb-3">
 											<label>Slug</label>
-											<input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">	
+											<input type="text" name="slug" id="slug" class="form-control" placeholder="Slug" readonly>	
                                             <p id="slug_msg"></p> 
                                             
                                         </div>
