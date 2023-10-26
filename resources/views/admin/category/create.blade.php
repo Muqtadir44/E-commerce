@@ -18,7 +18,8 @@
 				<section class="content">
 					<!-- Default box -->
 					<div class="container-fluid">
-                        <form action="" method="POST">						
+                        <form action="" method="POST" id="category-form">
+                            @csrf				
 						<div class="card">
 							<div class="card-body">
 								<div class="row">
@@ -48,7 +49,7 @@
 							</div>							
 						</div>
 						<div class="pb-5 pt-3">
-							<button class="btn btn-primary">Create</button>
+							<button type="submit" class="btn btn-primary">Create</button>
 							<a href="brands.html" class="btn btn-outline-dark ml-3">Cancel</a>
 						</div>
 					</div>
@@ -59,5 +60,20 @@
 @endsection
 @section('custom_js')
     <script>
+        $('#category-form').submit(function(e){
+            e.preventDefault();
+            var formdata = $(this);
+            $.ajax({
+                url: '{{route('categories.store')}}',
+                type: 'POST',
+                data: formdata.serializeArray(),
+                dataType: 'json',
+                success: function(data){
+
+                }, error: function(jqXHR, exception){
+                    console.log('something went wrong');
+                }
+            })
+        })
     </script>
 @endsection
