@@ -113,23 +113,5 @@
 @endsection
 @section('custom_js')
 <script>
-//     categories();
-//     function categories(){
-//        $(document).ready(function(){
-//            $('#categories_table').DataTable({
-//                processing: true,
-//                serverSide: true,
-//                ajax: '{!! route('categories.index') !!}',
-//                columns: [
-//                    {data: 'id', name: 'id', searchable: false},
-//                    {data: 'name', name: 'name', searchable: false},
-//                    {data: 'slug', name: 'slug', searchable: true},
-//                    {data: 'status', name: 'status', searchable: false},
-//                    {data: 'action', name: 'action'}
-//                ]
-//            });
-//        })
-
-//    }    
 </script>
 @endsection

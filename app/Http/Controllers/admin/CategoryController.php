@@ -12,6 +12,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
+
+    
     public function index(Request $request){
         $categories = category::latest();
 
