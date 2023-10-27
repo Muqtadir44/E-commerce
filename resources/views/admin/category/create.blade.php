@@ -73,7 +73,7 @@
                 dataType: 'json',
                 success: function(response){
                     if (response['status'] == true) {
-                        
+                        window.location.href="{{route('categories.index')}}";
                     } else {
                         
                         var errors = response['errors'];
