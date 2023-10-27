@@ -35,7 +35,18 @@
                                     </div>
                                 </div>
                             </form>
-							<div class="card-body table-responsive p-0">								
+							<div class="card-body table-responsive p-0">	
+                                <table class="table table-hover text-nowrap" id="categories_table">
+									<thead>
+										<tr>
+											<th width="60">ID</th>
+											<th>Name</th>
+											<th>Slug</th>
+											<th width="100">Status</th>
+											<th width="100">Action</th>
+										</tr>
+									</thead>
+                                </table>							
 								<table class="table table-hover text-nowrap">
 									<thead>
 										<tr>
@@ -94,11 +105,31 @@
 								
 							</div>
 						</div>
+
 					</div>
 					<!-- /.card -->
 				</section>
 				<!-- /.content -->
 @endsection
 @section('custom_js')
-    
+<script>
+//     categories();
+//     function categories(){
+//        $(document).ready(function(){
+//            $('#categories_table').DataTable({
+//                processing: true,
+//                serverSide: true,
+//                ajax: '{!! route('categories.index') !!}',
+//                columns: [
+//                    {data: 'id', name: 'id', searchable: false},
+//                    {data: 'name', name: 'name', searchable: false},
+//                    {data: 'slug', name: 'slug', searchable: true},
+//                    {data: 'status', name: 'status', searchable: false},
+//                    {data: 'action', name: 'action'}
+//                ]
+//            });
+//        })
+
+//    }    
+</script>
 @endsection

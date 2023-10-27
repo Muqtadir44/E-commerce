@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\admin;
 
+// use App\DataTables\CategoriesDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\category;
+use Yajra\DataTables\Facades\DataTables;
+
 
 class CategoryController extends Controller
 {
@@ -17,6 +20,9 @@ class CategoryController extends Controller
         }        
         
         $categories = category::latest()->paginate(10);
+        // $data = category::query()->get();
+        // return DataTables::of($data)->addIndexColumn()->make(true);
+        // return DataTables::of(category::query())->make(true);
         
         return view('admin.category.all_categories',compact('categories'));
     }
