@@ -20,21 +20,7 @@
 					<div class="container-fluid">
                         @include('admin.message')
 						<div class="card">
-                            {{-- <form action="" method="GET">
-							    <div class="card-header">
-                                    <div class="card-tools">
-                                        <div class="input-group input-group" style="width: 250px;">
-                                            <input value='{{Request::get('search')}}' type="text" name="search" class="form-control float-right" placeholder="Search">
-                        
-                                            <div class="input-group-append">
-                                              <button type="submit" class="btn btn-default">
-                                                <i class="fas fa-search"></i>
-                                              </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form> --}}
+                           
 							<div class="card-body table-responsive">	
                                						
 								{{-- <table class="table table-hover text-nowrap">
@@ -90,7 +76,7 @@
 									</tbody>
 								</table>										 --}}
                                 {{-- {{$dataTable->table()}} --}}
-                                {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped table-bordered'], true) !!}
+                                {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped']) !!}
 							</div>
 							{{-- <div class="card-footer clearfix">
                                 {{$categories->links('pagination::bootstrap-5')}}
