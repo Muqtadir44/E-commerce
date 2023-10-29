@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                             </form> --}}
-							<div class="card-body table-responsive p-0">	
+							<div class="card-body table-responsive">	
                                						
 								{{-- <table class="table table-hover text-nowrap">
 									<thead>
@@ -89,8 +89,8 @@
                                         @endif
 									</tbody>
 								</table>										 --}}
-                                {{$dataTable->table()}}
-                                {{-- {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped table-bordered'], true) !!} --}}
+                                {{-- {{$dataTable->table()}} --}}
+                                {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped table-bordered'], true) !!}
 							</div>
 							{{-- <div class="card-footer clearfix">
                                 {{$categories->links('pagination::bootstrap-5')}}
@@ -108,6 +108,8 @@
 @endsection
 @section('custom_js')
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
+	<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
 {{$dataTable->scripts(attributes:['type' => 'module'])}}
 <script>
 </script>
