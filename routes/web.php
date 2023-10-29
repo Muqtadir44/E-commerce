@@ -54,8 +54,8 @@ Route::prefix('admin')->group(function(){
 
             })->name('getSlug');
 
-            // Route::get('/categories',[CategoryController::class,'all_categories'])->name('all_categories');
-            Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
+            Route::get('/categories',[CategoryController::class,'all_categories'])->name('categories.index');
+            // Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
 
             // ---Categories Route's End ---
 

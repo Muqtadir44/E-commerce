@@ -20,7 +20,7 @@
 					<div class="container-fluid">
                         @include('admin.message')
 						<div class="card">
-                            <form action="" method="GET">
+                            {{-- <form action="" method="GET">
 							    <div class="card-header">
                                     <div class="card-tools">
                                         <div class="input-group input-group" style="width: 250px;">
@@ -31,23 +31,13 @@
                                                 <i class="fas fa-search"></i>
                                               </button>
                                             </div>
-                                          </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
+                            </form> --}}
 							<div class="card-body table-responsive p-0">	
-                                <table class="table table-hover text-nowrap" id="categories_table">
-									<thead>
-										<tr>
-											<th width="60">ID</th>
-											<th>Name</th>
-											<th>Slug</th>
-											<th width="100">Status</th>
-											<th width="100">Action</th>
-										</tr>
-									</thead>
-                                </table>							
-								<table class="table table-hover text-nowrap">
+                               						
+								{{-- <table class="table table-hover text-nowrap">
 									<thead>
 										<tr>
 											<th width="60">ID</th>
@@ -98,20 +88,27 @@
                                             </tr>
                                         @endif
 									</tbody>
-								</table>										
+								</table>										 --}}
+                                {{$dataTable->table()}}
+                                {{-- {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped table-bordered'], true) !!} --}}
 							</div>
-							<div class="card-footer clearfix">
+							{{-- <div class="card-footer clearfix">
                                 {{$categories->links('pagination::bootstrap-5')}}
 								
-							</div>
+							</div> --}}
 						</div>
-
+                        <div class="row">
+                            <div class="col">
+                            </div>
+                        </div>
 					</div>
 					<!-- /.card -->
 				</section>
 				<!-- /.content -->
 @endsection
 @section('custom_js')
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
+{{$dataTable->scripts(attributes:['type' => 'module'])}}
 <script>
 </script>
 @endsection

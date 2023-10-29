@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-// use App\DataTables\CategoriesDataTable;
+use App\DataTables\CategoriesDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -13,21 +13,23 @@ use Yajra\DataTables\Facades\DataTables;
 class CategoryController extends Controller
 {
 
-    
-    public function index(Request $request){
-        $categories = category::latest();
-
-        if (!empty($request->get('search'))) {
-            $categories = $categories->where('name','like','%'.$request->get('search').'%');            
-        }        
-        
-        $categories = category::latest()->paginate(10);
-        // $data = category::query()->get();
-        // return DataTables::of($data)->addIndexColumn()->make(true);
-        // return DataTables::of(category::query())->make(true);
-        
-        return view('admin.category.all_categories',compact('categories'));
+    public function all_categories(CategoriesDataTable $dataTable){
+        return $dataTable->render('admin.category.all_categories');
     }
+    // public function index(Request $request){
+    //     $categories = category::latest();
+
+    //     if (!empty($request->get('search'))) {
+    //         $categories = $categories->where('name','like','%'.$request->get('search').'%');            
+    //     }        
+        
+    //     $categories = category::latest()->paginate(10);
+    //     // $data = category::query()->get();
+    //     // return DataTables::of($data)->addIndexColumn()->make(true);
+    //     // return DataTables::of(category::query())->make(true);
+        
+    //     return view('admin.category.all_categories',compact('categories'));
+    // }
 
     public function create(){
         // echo "create category page";
