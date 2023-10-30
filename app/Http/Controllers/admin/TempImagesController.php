@@ -17,11 +17,11 @@ class TempImagesController extends Controller
             $tempImage = new TempImage();
             $tempImage->name = $newName;
             $tempImage->save();
-            $image->move(public_path().'/temp',$newName);
+            $image->move(public_path().'/uploads/category',$newName);
             return response()->json([
-                'status'   => true,
+                'status' => true,
                 'image_id' => $tempImage->id,
-                'message'  => 'Image Added Successfully',
+                'message'  => 'Image Added Successfully'
             ]);
 
         }

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\category;
 use Yajra\DataTables\Facades\DataTables;
 use App\DataTables\CategoriesDataTable;
+use App\Models\TempImage;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -36,6 +38,7 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request){
+        // return dd($request->all());
         $validator = Validator::make($request->all(),[
             'name'   => 'required',
             'slug'   => 'required|unique:categories',
@@ -49,8 +52,22 @@ class CategoryController extends Controller
             $category -> slug   = $request->slug;
             $category -> status = $request->status;
 
-            $category->save();
             
+            //Saving Image
+            if (!empty($request->image_id)) {
+                $tempImage     = TempImage::find($request->image_id);
+                $ImageName  = $tempImage->name;
+                // $extArray      = explode('.',$tempImage);
+                // $ext           = last($extArray);
+            
+                // $sPath = public_path().'/temp/'.$tempImage->name;
+                // $dPath = public_path().'/uploads/category/'.$newImageName;
+                // File::copy($sPath,$dPath);
+
+                $category-> image = $ImageName;
+            }
+
+            $category->save();
             $request->session()->flash('success','Category Created Successfully');
             
             return response()->json([
