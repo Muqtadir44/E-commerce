@@ -48,7 +48,7 @@
                                             </select>
                                         </div>
 									</div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="mb-3">
                                             <div id="image" class="dropzone dz-clickable">
                                                 <div class="dz-message needsclick">    
@@ -148,7 +148,7 @@
     addRemoveLinks: true,
     acceptedFiles: "image/jpeg,image/png,image/gif",
     headers: {
-        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
     }, success: function(file, response){
         $("#image_id").val(response.image_id);
         //console.log(response)
