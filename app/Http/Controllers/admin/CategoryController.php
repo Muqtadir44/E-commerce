@@ -73,7 +73,7 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    public function update(Request $request){
+    public function update_category(Request $request){
          
         $category = category::find($request->category_id);
         $update_category = [

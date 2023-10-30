@@ -153,7 +153,7 @@
                 $('#status').val(response.status);
             }
         })
-    })
+    });
 
     $('#update_category_form').on('submit',function(e){
         e.preventDefault();
@@ -164,14 +164,10 @@
             data: formdata,
             processData: false,
             contentType: false,
-            success: function(response){
-                console.log(response);
-                
+            success: function(data){
+                console.log(data);
             }
         })
-
-
-
     })
 </script>
 @endsection
