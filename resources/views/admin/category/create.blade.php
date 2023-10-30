@@ -148,7 +148,7 @@
     addRemoveLinks: true,
     acceptedFiles: "image/jpeg,image/png,image/gif",
     headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }, success: function(file, response){
         $("#image_id").val(response.image_id);
         //console.log(response)
