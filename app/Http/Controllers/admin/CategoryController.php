@@ -10,6 +10,8 @@ use Yajra\DataTables\Facades\DataTables;
 use App\DataTables\CategoriesDataTable;
 use App\Models\TempImage;
 use Illuminate\Support\Facades\File;
+// use Image;
+
 
 class CategoryController extends Controller
 {
@@ -61,9 +63,12 @@ class CategoryController extends Controller
                 // $ext           = last($extArray);
             
                 // $sPath = public_path().'/temp/'.$tempImage->name;
-                // $dPath = public_path().'/uploads/category/'.$newImageName;
+                $sPath = public_path().'/uploads/category/'.$ImageName;
+                $dPath = public_path().'/uploads/category/thumb'.$ImageName;
                 // File::copy($sPath,$dPath);
-
+                $img = Image::make($sPath);
+                $img->resize(450, 600);
+                $img->save($dPath);
                 $category-> image = $ImageName;
             }
 
