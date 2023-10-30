@@ -66,12 +66,14 @@
         $('#category-form').submit(function(e){
             e.preventDefault();
             var formdata = $(this);
+            $('button[type=submit]').prop('disabled',true);
             $.ajax({
                 url: '{{route('categories.store')}}',
                 type: 'POST',
                 data: formdata.serializeArray(),
                 dataType: 'json',
                 success: function(response){
+            $('button[type=submit]').prop('disabled',false);
                     if (response['status'] == true) {
                         window.location.href="{{route('categories.index')}}";
                     } else {
@@ -106,12 +108,15 @@
 
         $('#name').change(function(){
             var element = $(this);
+            $('button[type=submit]').prop('disabled',true);
+
              $.ajax({
                 url: '{{route('getSlug')}}',
                 type: 'GET',
                 data: {title: element.val()},
                 dataType: 'json',
                 success: function(response){
+                    $('button[type=submit]').prop('disabled',false);
                     if (response['status'] == true) {
                         $("#slug").val(response['slug']);
                     }

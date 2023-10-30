@@ -9,7 +9,6 @@ use App\Models\category;
 use Yajra\DataTables\Facades\DataTables;
 use App\DataTables\CategoriesDataTable;
 
-
 class CategoryController extends Controller
 {
 
@@ -51,9 +50,9 @@ class CategoryController extends Controller
             $category -> status = $request->status;
 
             $category->save();
-
-            // $request->session()->flash('success','Category Created Successfully');
-
+            
+            $request->session()->flash('success','Category Created Successfully');
+            
             return response()->json([
                 'status'  => true,
                 'message' => 'Category Created Successfully'
