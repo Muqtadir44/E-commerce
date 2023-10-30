@@ -67,12 +67,25 @@ class CategoryController extends Controller
         }
     }
 
-    public function edit(){
-
+    public function edit(Request $request){
+        $id = $request->id;
+        $category = category::find($id);
+        return response()->json($category);
     }
 
-    public function update(){
-
+    public function update(Request $request){
+         
+        $category = category::find($request->category_id);
+        $update_category = [
+            'name'   => $request->category_name,
+            'slug'   => $request->slug,
+            'status' => $request->status
+        ];
+        $category->update($update_category);
+        return response()->json([
+            'status'  => true,
+            'message' => 'Category Updated Successfully'
+        ]);
     }
 
     public function delete(){

@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,8 @@ Route::prefix('admin')->group(function(){
 
             Route::get('/categories',[CategoryController::class,'all_categories'])->name('categories.index');
             // Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
+            Route::get('/edit_category',[CategoryController::class,'edit'])->name('categories.edit');
+            Route::post('/upate_category',[CategoryController::class,'update'])->name('categories.update');
 
             // ---Categories Route's End ---
 

@@ -89,8 +89,45 @@
                         </div>
 					</div>
 					<!-- /.card -->
+                    <div class="modal fade" id="edit_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Category</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="show_all_products">
+                                <p id="msg"></p>
+                                <form action="{{route('categories.update')}}" method="POST" id="update_category_form">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <input type="hidden" name="category_id" id="category_id" value="">
+                                        <label class="form-label">Name</label>
+                                        <input type="text" name="name" class="form-control" id="category_name" placeholder="Name">
+                                    </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Slug</label>
+                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug">    
+                                    </div>
+                                      <div class="mb-3">
+                                        <label  class="form-label">Status</label>
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inative</option>
+                                        </select>    
+                                    </div>
+                                      <div class="text-center">
+                                        <button type="submit" id="update_category_btn" class="btn btn-primary px-5">Update Category</button>
+                                      </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
 				</section>
 				<!-- /.content -->
+
+{{-- Update Category Modal --}}
 @endsection
 @section('custom_js')
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -98,5 +135,43 @@
 
 {{$dataTable->scripts(attributes:['type' => 'module'])}}
 <script>
+    $(document).on('click','.edit-btn',function(e){
+        e.preventDefault();
+        var category_id = $(this).attr('id');
+        $.ajax({
+            url: '{{route('categories.edit')}}',
+            type: 'GET',
+            data: {
+                id:category_id,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response){
+                console.log(response);
+                $('#category_id').val(response.id);
+                $('#category_name').val(response.name);
+                $('#slug').val(response.slug);
+                $('#status').val(response.status);
+            }
+        })
+    })
+
+    $('#update_category_form').on('submit',function(e){
+        e.preventDefault();
+        var formdata = new FormData(this);
+        $.ajax({
+            url: '{{route('categories.update')}}',
+            type: 'POST',
+            data: formdata,
+            processData: false,
+            contentType: false,
+            success: function(response){
+                console.log(response);
+                
+            }
+        })
+
+
+
+    })
 </script>
 @endsection
