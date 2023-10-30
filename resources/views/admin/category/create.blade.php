@@ -47,7 +47,16 @@
                                                 <option value="Inactive">Inactive</option>
                                             </select>
                                         </div>
-									</div>									
+									</div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <div id="image" class="dropzone dz-clickable">
+                                                <div class="dz-message needsclick">    
+                                                    <br>Drop files here or click to upload.<br><br>                                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>								
 								</div>
 							</div>							
 						</div>
