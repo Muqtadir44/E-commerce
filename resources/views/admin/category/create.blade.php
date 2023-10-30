@@ -50,6 +50,8 @@
 									</div>
                                     <div class="col-md-12">
                                         <div class="mb-3">
+                                            <label for="">Category Image</label>
+                                            <input type="hidden" name="image_id" id="image_id" >
                                             <div id="image" class="dropzone dz-clickable">
                                                 <div class="dz-message needsclick">    
                                                     <br>Drop files here or click to upload.<br><br>                                            
