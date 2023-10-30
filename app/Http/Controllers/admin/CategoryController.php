@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use Illuminate\Support\Facades\Session;
+// use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,7 +11,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\DataTables\CategoriesDataTable;
 use App\Models\TempImage;
 use Illuminate\Support\Facades\File;
-// use Image;
+use Image;
 
 
 class CategoryController extends Controller
