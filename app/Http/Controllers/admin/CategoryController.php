@@ -65,7 +65,7 @@ class CategoryController extends Controller
             
                 // $sPath = public_path().'/temp/'.$tempImage->name;
                 $sPath = public_path().'/uploads/category/'.$ImageName;
-                $dPath = public_path().'/uploads/category/thumb'.$ImageName;
+                $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
                 // File::copy($sPath,$dPath);
                 $img = Image::make($sPath);
                 $img->resize(450, 600);
