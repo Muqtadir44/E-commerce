@@ -118,15 +118,14 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="">Category Image</label>
+                                        <div id="category_image" class="mb-3">
+                                        </div>
                                             <input type="hidden" name="image_id" id="image_id" >
                                             <div id="image" class="dropzone dz-clickable">
                                                 <div class="dz-message needsclick">    
                                                     <br>Drop files here or click to upload.<br><br>                                            
                                                 </div>
                                             </div>
-                                    </div>
-                                    <div class="mb-3" id="category_image">
-                                        {{-- <img src="" id="image" alt=""> --}}
                                     </div>
                                       <div class="text-center">
                                         <button type="submit" id="update_category_btn" class="btn btn-primary px-5">Update Category</button>
@@ -162,8 +161,11 @@
                 $('#category_id').val(response.id);
                 $('#name').val(response.name);
                 $('#slug').val(response.slug);
-                if (response.image != "") {
+                if (!response.image == "") {
                     $('#category_image').html(`<img src='{{asset('uploads/category/${response.image}')}}' width='100px' class='mt-2 img-fluid rounded'>`)
+                }else{
+
+                    $('#category_image').html(``);
                 }
                 $('#status').val(response.status);
             }
