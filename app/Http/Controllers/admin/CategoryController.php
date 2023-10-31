@@ -69,7 +69,10 @@ class CategoryController extends Controller
                 $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
                 // File::copy($sPath,$dPath);
                 $img = Image::make($sPath);
-                $img->resize(450, 600);
+                // $img->resize(450, 600);
+                $img->fit(450, 600, function ($constraint) {
+                    $constraint->upsize();
+                });
                 $img->save($dPath);
                 $category-> image = $ImageName;
             }
@@ -142,7 +145,10 @@ class CategoryController extends Controller
                 $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
                 // File::copy($sPath,$dPath);
                 $img = Image::make($sPath);
-                $img->resize(450, 600);
+                // $img->resize(450, 600);
+                $img->fit(450, 600, function ($constraint) {
+                    $constraint->upsize();
+                });
                 $img->save($dPath);
                 $category-> image = $ImageName;
             }
