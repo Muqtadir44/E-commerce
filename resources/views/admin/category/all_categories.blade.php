@@ -103,11 +103,11 @@
                                     <div class="mb-3">
                                         <input type="hidden" name="category_id" id="category_id" value="">
                                         <label class="form-label">Name</label>
-                                        <input type="text" name="name" class="form-control" id="category_name" placeholder="Name">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Name">
                                     </div>
                                       <div class="mb-3">
                                         <label  class="form-label">Slug</label>
-                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug">    
+                                        <input type="text" name="slug" class="form-control" id="slug" placeholder="Slug" readonly>    
                                     </div>
                                       <div class="mb-3">
                                         <label  class="form-label">Status</label>
@@ -115,6 +115,18 @@
                                             <option value="Active">Active</option>
                                             <option value="Inactive">Inative</option>
                                         </select>    
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="">Category Image</label>
+                                            <input type="hidden" name="image_id" id="image_id" >
+                                            <div id="image" class="dropzone dz-clickable">
+                                                <div class="dz-message needsclick">    
+                                                    <br>Drop files here or click to upload.<br><br>                                            
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="mb-3" id="category_image">
+                                        {{-- <img src="" id="image" alt=""> --}}
                                     </div>
                                       <div class="text-center">
                                         <button type="submit" id="update_category_btn" class="btn btn-primary px-5">Update Category</button>
@@ -148,11 +160,32 @@
             success: function(response){
                 console.log(response);
                 $('#category_id').val(response.id);
-                $('#category_name').val(response.name);
+                $('#name').val(response.name);
                 $('#slug').val(response.slug);
+                if (response.image != "") {
+                    $('#category_image').html(`<img src='{{asset('uploads/category/${response.image}')}}' width='100px' class='mt-2 img-fluid rounded'>`)
+                }
                 $('#status').val(response.status);
             }
         })
+    });
+
+    $('#name').change(function(){
+        var element = $(this);
+        $('button[type=submit]').prop('disabled',true);
+
+            $.ajax({
+            url: '{{route('getSlug')}}',
+            type: 'GET',
+            data: {title: element.val()},
+            dataType: 'json',
+            success: function(response){
+                $('button[type=submit]').prop('disabled',false);
+                if (response['status'] == true) {
+                    $("#slug").val(response['slug']);
+                }
+            } 
+        });
     });
 
     $('#update_category_form').on('submit',function(e){
@@ -168,6 +201,28 @@
                 console.log(data);
             }
         })
-    })
+    });
+
+   Dropzone.autoDiscover = false;    
+    const dropzone = $("#image").dropzone({ 
+    init: function() {
+        this.on('addedfile', function(file) {
+            if (this.files.length > 1) {
+                this.removeFile(this.files[0]);
+            }
+        });
+    },
+    url:  "{{ route('temp-images.create') }}",
+    maxFiles: 1,
+    paramName: 'image',
+    addRemoveLinks: true,
+    acceptedFiles: "image/jpeg,image/png,image/",
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }, success: function(file, response){
+        $("#image_id").val(response.image_id);
+        //console.log(response)
+    }
+});
 </script>
 @endsection

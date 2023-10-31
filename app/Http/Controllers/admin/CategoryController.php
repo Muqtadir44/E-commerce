@@ -20,6 +20,7 @@ class CategoryController extends Controller
     public function all_categories(CategoriesDataTable $dataTable){
         return $dataTable->render('admin.category.all_categories');
     }
+    
     // public function index(Request $request){
     //     $categories = category::latest();
 
