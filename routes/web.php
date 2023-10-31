@@ -62,6 +62,7 @@ Route::prefix('admin')->group(function(){
             // Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
             Route::get('/edit_category',[CategoryController::class,'edit'])->name('categories.edit');
             Route::post('/upate_category',[CategoryController::class,'update'])->name('categories.update');
+            Route::delete('/delete_category',[CategoryController::class,'destory'])->name('categories.delete');
 
             // ---Categories Route's End ---
 

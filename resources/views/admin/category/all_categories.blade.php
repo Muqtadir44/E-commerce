@@ -226,5 +226,17 @@
         //console.log(response)
     }
 });
+
+function delete_category(id){
+    // alert(id);
+    $.ajax({
+        url: '{{route('categories.delete')}}',
+        type: 'delete',
+        data: id,
+        success: function(response){
+            console.log(response);
+        }
+    })
+}
 </script>
 @endsection
