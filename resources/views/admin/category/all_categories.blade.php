@@ -74,7 +74,7 @@
                                             </tr>
                                         @endif
 									</tbody>
-								</table>										 --}}
+								</table> --}}
                                 {{-- {{$dataTable->table()}} --}}
                                 {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped']) !!}
 							</div>
@@ -190,6 +190,8 @@
         });
     });
 
+   
+
     $('#update_category_form').on('submit',function(e){
         e.preventDefault();
         var formdata = new FormData(this);
@@ -201,6 +203,10 @@
             contentType: false,
             success: function(data){
                 console.log(data);
+                var table = $('#category-table').DataTable();
+                    table.destroy();
+                // table_reload();
+
             }
         })
     });

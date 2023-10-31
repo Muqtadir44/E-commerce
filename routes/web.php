@@ -61,7 +61,7 @@ Route::prefix('admin')->group(function(){
             Route::get('/categories',[CategoryController::class,'all_categories'])->name('categories.index');
             // Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
             Route::get('/edit_category',[CategoryController::class,'edit'])->name('categories.edit');
-            Route::post('/upate_category',[CategoryController::class,'update_category'])->name('categories.update');
+            Route::post('/upate_category',[CategoryController::class,'update'])->name('categories.update');
 
             // ---Categories Route's End ---
 
