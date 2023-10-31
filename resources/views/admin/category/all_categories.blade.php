@@ -75,13 +75,8 @@
                                         @endif
 									</tbody>
 								</table> --}}
-                                {{-- {{$dataTable->table()}} --}}
                                 {!! $dataTable->table(['class' => 'table table-hover text-nowrap table-striped']) !!}
 							</div>
-							{{-- <div class="card-footer clearfix">
-                                {{$categories->links('pagination::bootstrap-5')}}
-								
-							</div> --}}
 						</div>
                         <div class="row">
                             <div class="col">
@@ -203,8 +198,7 @@
             contentType: false,
             success: function(data){
                 console.log(data);
-                var table = $('#category-table').DataTable();
-                    table.destroy();
+                window.location.href = "{{route('categories.index')}}";
                 // table_reload();
 
             }

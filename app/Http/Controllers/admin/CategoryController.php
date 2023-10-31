@@ -124,12 +124,12 @@ class CategoryController extends Controller
         ]);
 
         if ($validator->passes()) {
-
+            
             $category -> name   = $request->name;
             $category -> slug   = $request->slug;
             $category -> status = $request->status;
             
-            
+            $oldImage = $category->image;
             //Saving Image
             if (!empty($request->image_id)) {
                 $tempImage     = TempImage::find($request->image_id);
@@ -148,6 +148,10 @@ class CategoryController extends Controller
             }
 
             $category->save();
+
+            //Delete Old Image
+            File::delete(public_path().'/uploads/category/'.$oldImage);
+            File::delete(public_path().'/uploads/category/thumb/'.$oldImage);
             $request->session()->flash('success','Category Updated Successfully');
             
             return response()->json([
