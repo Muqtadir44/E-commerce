@@ -11,7 +11,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\DataTables\CategoriesDataTable;
 use App\Models\TempImage;
 use Illuminate\Support\Facades\File;
-use Intervention\Image\Facades\Image;
+use Image;
 
 
 class CategoryController extends Controller
