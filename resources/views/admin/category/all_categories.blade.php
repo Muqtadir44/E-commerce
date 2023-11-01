@@ -229,14 +229,22 @@
 
 function delete_category(id){
     // alert(id);
-    $.ajax({
-        url: '{{route('categories.delete')}}',
-        type: 'delete',
-        data: id,
-        success: function(response){
-            console.log(response);
-        }
-    })
+    var id = id;
+    var url    = "{{route('categories.delete','ID')}}";
+    var newurl = url.replace("ID",id);
+    if (confirm("Are You Sure you want to delete")) {
+        $.ajax({
+            url: newurl,
+            type: 'delete',
+            data: {},
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response){
+                window.location.href = "{{route('categories.index')}}"; 
+            }
+        });
+    }
 }
 </script>
 @endsection
