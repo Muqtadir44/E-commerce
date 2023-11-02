@@ -23,7 +23,7 @@
         @include('admin.message')
         <div class="card">
             <div class="card-body table-responsive">	               						
-            {!! $dataTable->table(['class' => 'table table-hover text-nowrap']) !!}
+                {!! $dataTable->table(['class' => 'table table-hover text-nowrap w-100']) !!}
             </div>
         </div>
         <div class="row">
