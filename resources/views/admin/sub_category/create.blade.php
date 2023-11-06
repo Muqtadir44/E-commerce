@@ -40,6 +40,12 @@
 											<label for="email">Slug</label>
 											<input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">	
 										</div>
+									</div>
+                                    <div class="col-md-6">
+										<div class="mb-3">
+											<label for="email">Status</label>
+                                            <select name="status" id=""></select>
+                                        </div>
 									</div>									
 								</div>
 							</div>							
