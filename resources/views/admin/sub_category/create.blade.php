@@ -24,8 +24,12 @@
 										<div class="mb-3">
 											<label for="name">Category</label>
 											<select name="category" id="category" class="form-control">
-                                                <option value="">Electronics</option>
-                                                <option value="">Mobile</option>
+                                                @if ($categories->isNotEmpty())
+                                                    @foreach ($categories as $category)
+                                                        
+                                                    <option value="{{$category->id}}"> {{$category->name}} </option>
+                                                    @endforeach
+                                                @endif
                                             </select>
 										</div>
 									</div>
@@ -44,7 +48,10 @@
                                     <div class="col-md-6">
 										<div class="mb-3">
 											<label for="email">Status</label>
-                                            <select name="status" id=""></select>
+                                            <select name="status" id="" class="form-control">
+                                                <option value="Active">Active</option>
+                                                <option value="Inactive">Inactive</option>
+                                            </select>
                                         </div>
 									</div>									
 								</div>
