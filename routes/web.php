@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\TempImagesController;
 use App\Models\category;
 use Illuminate\Http\Request;
@@ -39,13 +40,9 @@ Route::prefix('admin')->group(function(){
             Route::get('/logout',[DashboardController::class,'logout'])->name('admin.logout');
 
             // ---Categories Route's ---
-            
             Route::get('/categories/create',[CategoryController::class,'create'])->name('categories.create');
-
             Route::post('/categories',[CategoryController::class,'store'])->name('categories.store');
-
             Route::post('/upload-temp-image',[TempImagesController::class,'create'])->name('temp-images.create');
-            
             Route::get('/getslug',function(Request $request){
                 $slug = '';
                 if (!empty($request->title)) {
@@ -57,7 +54,6 @@ Route::prefix('admin')->group(function(){
                 ]);
 
             })->name('getSlug');
-
             Route::get('/categories',[CategoryController::class,'all_categories'])->name('categories.index');
             // Route::get('/categories',[CategoryController::class,'index'])->name('categories.index');
             Route::get('/edit_category',[CategoryController::class,'edit'])->name('categories.edit');
@@ -65,6 +61,13 @@ Route::prefix('admin')->group(function(){
             Route::delete('/delete_category/{category}',[CategoryController::class,'delete'])->name('categories.delete');
 
             // ---Categories Route's End ---
+
+
+            // ---Sub-Categories Route's Start ---
+            Route::get('/sub-categories/create',[SubCategoryController::class,'create'])->name('sub-categories.create');
+
+            // ---Sub-Categories Route's End ---
+
 
     });
     
