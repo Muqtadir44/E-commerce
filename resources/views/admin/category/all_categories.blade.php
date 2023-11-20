@@ -99,6 +99,7 @@
                 processData: false,
                 contentType: false,
                 success: function(data){
+                    $('#edit_category').modal('hide');
                     console.log(data);
                     Swal.fire({
                         title: "Updated",
@@ -143,7 +144,16 @@
         var id = id;
         var url    = "{{route('categories.delete','ID')}}";
         var newurl = url.replace("ID",id);
-        if (confirm("Are You Sure you want to delete")) {
+        Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+        if (result.isConfirmed) {
             $.ajax({
                 url: newurl,
                 type: 'delete',
@@ -152,10 +162,21 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function(response){
-                    window.location.href = "{{route('categories.index')}}";
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                            // window.location.href = "{{route('categories.index')}}";
+                        }
+                    })
                 }
             });
+
         }
+        });
         }
     </script>
 @endsection
