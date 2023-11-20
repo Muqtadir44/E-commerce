@@ -100,7 +100,16 @@
                 contentType: false,
                 success: function(data){
                     console.log(data);
-                    window.location.href = "{{route('categories.index')}}";
+                    Swal.fire({
+                        title: "Updated",
+                        text: "Category Updated Successfully",
+                        icon: "success"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                        });
+                    // window.location.href = "{{route('categories.index')}}";
                     // table_reload();
 
                 }
