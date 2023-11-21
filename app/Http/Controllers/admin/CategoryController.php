@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\File;
 use Image;
 
 
+
 class CategoryController extends Controller
 {
 
@@ -25,14 +26,14 @@ class CategoryController extends Controller
     //     $categories = category::latest();
 
     //     if (!empty($request->get('search'))) {
-    //         $categories = $categories->where('name','like','%'.$request->get('search').'%');            
-    //     }        
-        
+    //         $categories = $categories->where('name','like','%'.$request->get('search').'%');
+    //     }
+
     //     $categories = category::latest()->paginate(10);
     //     // $data = category::query()->get();
     //     // return DataTables::of($data)->addIndexColumn()->make(true);
     //     // return DataTables::of(category::query())->make(true);
-        
+
     //     return view('admin.category.all_categories',compact('categories'));
     // }
 
@@ -56,14 +57,14 @@ class CategoryController extends Controller
             $category -> slug   = $request->slug;
             $category -> status = $request->status;
 
-            
+
             //Saving Image
             if (!empty($request->image_id)) {
                 $tempImage     = TempImage::find($request->image_id);
                 $ImageName  = $tempImage->name;
                 // $extArray      = explode('.',$tempImage);
                 // $ext           = last($extArray);
-            
+
                 // $sPath = public_path().'/temp/'.$tempImage->name;
                 $sPath = public_path().'/uploads/category/'.$ImageName;
                 $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
@@ -79,12 +80,12 @@ class CategoryController extends Controller
 
             $category->save();
             $request->session()->flash('success','Category Created Successfully');
-            
+
             return response()->json([
                 'status'  => true,
                 'message' => 'Category Created Successfully'
             ]);
-            
+
         }else{
             return  response()->json([
                 'status' => false,
@@ -100,7 +101,7 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request){
-         
+
         // $category = category::find($request->category_id);
         // $update_category = [
         //     'name'   => $request->category_name,
@@ -127,11 +128,11 @@ class CategoryController extends Controller
         ]);
 
         if ($validator->passes()) {
-            
+
             $category -> name   = $request->name;
             $category -> slug   = $request->slug;
             $category -> status = $request->status;
-            
+
             $oldImage = $category->image;
             //Saving Image
             if (!empty($request->image_id)) {
@@ -139,7 +140,7 @@ class CategoryController extends Controller
                 $ImageName  = $tempImage->name;
                 // $extArray      = explode('.',$tempImage);
                 // $ext           = last($extArray);
-            
+
                 // $sPath = public_path().'/temp/'.$tempImage->name;
                 $sPath = public_path().'/uploads/category/'.$ImageName;
                 $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
@@ -159,12 +160,12 @@ class CategoryController extends Controller
             File::delete(public_path().'/uploads/category/'.$oldImage);
             File::delete(public_path().'/uploads/category/thumb/'.$oldImage);
             $request->session()->flash('success','Category Updated Successfully');
-            
+
             return response()->json([
                 'status'  => true,
                 'message' => 'Category Updated Successfully'
             ]);
-            
+
         }else{
             return  response()->json([
                 'status' => false,
