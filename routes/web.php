@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\SubCategoryController;
 use App\Http\Controllers\admin\TempImagesController;
 use App\Models\category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,7 @@ Route::get('/', function () {
 
 
 Route::prefix('admin')->group(function(){
-    
+
     Route::group(['middleware' => 'admin.guest'],function(){
 
         Route::get('/login',[AdminController::class,'admin_login'])->name('admin.login');
@@ -64,11 +65,14 @@ Route::prefix('admin')->group(function(){
 
 
             // ---Sub-Categories Route's Start ---
-            Route::get('/sub-categories/create',[SubCategoryController::class,'create'])->name('sub-categories.create');
 
+            Route::controller(SubCategoryController::class)->group(function(){
+                Route::get('/sub-categories/create','create')->name('sub-categories.create');
+                Route::get('/sub-categories','listing')->name('sub-categories.listing');
+            });
             // ---Sub-Categories Route's End ---
 
 
     });
-    
+
 });
