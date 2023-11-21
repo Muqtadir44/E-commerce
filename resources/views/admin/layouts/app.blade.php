@@ -91,9 +91,7 @@
 
 		<!-- AdminLTE for demo purposes -->
 		{{-- <script src="js/demo.js"></script> --}}
-        <script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
-"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
 		<script type="text/javascript">
 		$.ajaxSetup({
 			headers: {
