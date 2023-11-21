@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
+    public function listing(){
+        return view('admin.sub_category.listing');
+    }
     public function create(){
         $categories = category::orderBy('name','DESC')->get();
         $data['categories'] = $categories;
