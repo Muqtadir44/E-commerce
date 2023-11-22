@@ -20,6 +20,16 @@
             @include('admin.message')
             <div class="card">
                 <div class="card-body table-responsive">
+                    <table id="sub-categories-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Slug</th>
+                                <th>Created at</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
             <div class="row">
@@ -30,8 +40,10 @@
         <!-- /.card -->
         @include('admin.sub_category.edit')<!-- Update Category Modal -->
     </section>
-@endsection
+    @endsection
+@section('custom_js')
 <script>
-    
+    var sub_categories_listing = '{{route('sub-categories.listing')}}'
 </script>
 <script src="{{asset('admin-assets/js/modal-scripts/sub-category.js')}}"></script>
+@endsection
