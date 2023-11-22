@@ -5,10 +5,13 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Yajra\DataTables;
+use App\Models\SubCategory;
 
 class SubCategoryController extends Controller
 {
     public function listing(){
+        
         return view('admin.sub_category.listing');
     }
     public function create(){
@@ -16,4 +19,6 @@ class SubCategoryController extends Controller
         $data['categories'] = $categories;
         return view('admin.sub_category.create',$data);
     }
+
+
 }

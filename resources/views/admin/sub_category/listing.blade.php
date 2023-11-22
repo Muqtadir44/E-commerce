@@ -31,4 +31,7 @@
         @include('admin.sub_category.edit')<!-- Update Category Modal -->
     </section>
 @endsection
+<script>
+    
+</script>
 <script src="{{asset('admin-assets/js/modal-scripts/sub-category.js')}}"></script>
