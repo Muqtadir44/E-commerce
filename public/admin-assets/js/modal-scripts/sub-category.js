@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     var SubCategoryTable = $('#sub-categories-table').DataTable({
         ordering: false,
         searching: true,
@@ -12,8 +13,15 @@ $(document).ready(function(){
         {
             data: 'name',
             name: 'name'
+        },
+        {
+            data: 'slug',
+            name: 'slug'
+        },
+        {
+            data: 'created_at',
+            name: 'created_at'
         }
-
     ]
     })
 })
