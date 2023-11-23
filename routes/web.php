@@ -70,6 +70,9 @@ Route::prefix('admin')->group(function(){
                 Route::get('/sub-categories/create','create')->name('sub-categories.create');
                 Route::get('/sub-categories','index')->name('sub-categories.index');
                 Route::get('/sub-categories/listing','listing')->name('sub-categories.listing');
+                Route::get('/sub-categories/edit','get_sub_category')->name('sub-categories.edit');
+                Route::get('/sub-categories/update','update')->name('sub-categories.update');
+                Route::get('/sub-categories/delete','delete')->name('sub-categories.delete');
 
             });
             // ---Sub-Categories Route's End ---
