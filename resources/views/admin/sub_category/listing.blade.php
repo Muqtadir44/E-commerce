@@ -20,7 +20,7 @@
             @include('admin.message')
             <div class="card">
                 <div class="card-body table-responsive">
-                    <table id="sub-categories-table">
+                    <table id="sub-categories-table" class="no-wrap table table-hover  w-100">
                         <thead>
                             <tr>
                                 <th>#</th>
