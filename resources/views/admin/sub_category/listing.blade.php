@@ -43,7 +43,9 @@
     @endsection
 @section('custom_js')
 <script>
-    var sub_categories_listing = '{{route('sub-categories.listing')}}'
+    var sub_categories_listing   = '{{route('sub-categories.listing')}}'
+    var sub_categories_edit      = '{{route('sub-categories.update')}}'
+    var sub_categories_delete    = '{{route('sub-categories.delete')}}'
 </script>
 <script src="{{asset('admin-assets/js/modal-scripts/sub-category.js')}}"></script>
 @endsection
