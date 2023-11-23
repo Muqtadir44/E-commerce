@@ -81,6 +81,8 @@
 		<!-- ./wrapper -->
 		<!-- jQuery -->
         <script src="{{asset('admin-assets/plugins/jquery/jquery.min.js')}}"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js" defer></script>
+    
 		<!-- Bootstrap 4 -->
 
         <script src="{{asset('admin-assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
