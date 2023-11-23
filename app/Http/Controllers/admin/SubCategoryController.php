@@ -26,5 +26,15 @@ class SubCategoryController extends Controller
         return view('admin.sub_category.create',$data);
     }
 
+    public function get_sub_category(){
 
+    }
+
+    public function update(){
+
+    }
+
+    public function delete(){
+        
+    }
 }
