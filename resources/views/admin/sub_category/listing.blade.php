@@ -7,7 +7,7 @@
                     <h1>Sub Categories</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a data-route="{{route('getCategories')}}" id="add" class="btn btn-primary">New Sub-category</a>
+                    <a data-route="route('getCategories')" id="add" class="btn btn-primary">New Sub-category</a>
                 </div>
             </div>
         </div>
