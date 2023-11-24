@@ -20,6 +20,12 @@ class SubCategoryController extends Controller
         ->addIndexColumn()
         ->make(true);
     }
+
+
+    public function getCategories(){
+        $categories = category::query()->get();
+        return response()->json(['categories' => $categories]);
+    }
     public function create(){
         $categories = category::orderBy('name','DESC')->get();
         $data['categories'] = $categories;
@@ -35,6 +41,6 @@ class SubCategoryController extends Controller
     }
 
     public function delete(){
-        
+
     }
 }
