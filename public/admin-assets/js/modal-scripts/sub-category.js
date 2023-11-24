@@ -57,6 +57,18 @@ $(document).ready(function(){
         e.preventDefault();
 
         // client side validation ---
-        // alert('working')
+        var flag     = true;
+        var category = $('#categories').val();
+        var name     = $('#name').val();
+
+        if (category == "" && name == "" ) {
+            flag = false;
+        }
+
+        if (flag) {
+            console.log('form filled');
+        } else {
+            return false;
+        }
     })
 })
