@@ -33,7 +33,13 @@ $(document).ready(function(){
             method:    'get',
             dataType:  'json',
             success: function(response){
-                console.log(response);
+                categories = response.categories;
+                var selectElement = $('#categories'); // Store the select element reference
+                selectElement.empty();
+                selectElement.append('<option value="">Select Category</option>'); // Add "Select Category" option
+                categories.forEach(element => {
+                    $('#categories').append(`<option value="${element['id']}" >${element['name']}</option>`)
+                });
             }
         })
         $('#add-modal').modal('show');
