@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
     var SubCategoryTable = $('#sub-categories-table').DataTable({
         ordering: false,
         searching: true,
@@ -23,5 +23,11 @@ $(document).ready(function(){
             name: 'created_at'
         }
     ]
+    })
+
+    $(document).on('click','#add',function(e){
+        e.preventDefault();
+        
+        $('#add-modal').modal('show');
     })
 })
