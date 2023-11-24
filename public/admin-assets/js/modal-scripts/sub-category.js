@@ -27,7 +27,15 @@ $(document).ready(function(){
 
     $(document).on('click','#add',function(e){
         e.preventDefault();
-        
+        $.ajax({
+            url:       $(this).data('route'),
+            type:      'get',
+            method:    'get',
+            dataType:  'json',
+            success: function(response){
+                console.log(response);
+            }
+        })
         $('#add-modal').modal('show');
     })
 })
