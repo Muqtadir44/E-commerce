@@ -77,17 +77,10 @@
         <div class="modal-body">
             <div class="row">
                 <div class="col-md-12">
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="name">Category</label>
-                        <select name="category" id="category" class="form-control">
-                            @if ($categories->isNotEmpty())
-                                @foreach ($categories as $category)
-
-                                <option value="{{$category->id}}"> {{$category->name}} </option>
-                                @endforeach
-                            @endif
-                        </select>
-                    </div> --}}
+                        <select class="form-control" name="" id="categories"></select>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
