@@ -7,7 +7,7 @@
                     <h1>Sub Categories</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="{{route('sub-categories.create')}}" class="btn btn-primary">New Sub-category</a>
+                    <a data-route="{{route('getCategories')}}" id="add" class="btn btn-primary">New Sub-category</a>
                 </div>
             </div>
         </div>
@@ -38,6 +38,7 @@
             </div>
         </div>
         <!-- /.card -->
+        @include('admin.sub_category.create')<!-- Create Category Modal -->
         @include('admin.sub_category.edit')<!-- Update Category Modal -->
     </section>
     @endsection
