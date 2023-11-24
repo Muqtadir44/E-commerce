@@ -97,7 +97,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="email">Status</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="status" class="form-control">
                             <option value="Active">Active</option>
                             <option value="Inactive">Inactive</option>
                         </select>
