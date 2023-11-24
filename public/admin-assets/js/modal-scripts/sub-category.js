@@ -25,6 +25,7 @@ $(document).ready(function(){
     ]
     })
 
+    // loading sub-category add modal and fetching all catgories
     $(document).on('click','#add',function(e){
         e.preventDefault();
         $.ajax({
@@ -43,5 +44,19 @@ $(document).ready(function(){
             }
         })
         $('#add-modal').modal('show');
+
+        $('#slug').attr('readonly',true)
+        $(document).on('blur','#name',function(){
+            var name = $('#name').val();
+            $('#slug').val(name)
+        })
+    })
+
+    // adding sub-category
+    $(document).on('click','#add-subCategory',function(e){
+        e.preventDefault();
+
+        // client side validation ---
+        // alert('working')
     })
 })
