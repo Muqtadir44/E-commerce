@@ -69,6 +69,7 @@ Route::prefix('admin')->group(function(){
             Route::controller(SubCategoryController::class)->group(function(){
                 Route::get('/sub-categories/get','getCategories')->name('getCategories');
                 Route::get('/sub-categories/create','create')->name('sub-categories.create');
+                Route::get('/sub-categories/add','add')->name('sub-categories.add');
                 Route::get('/sub-categories','index')->name('sub-categories.index');
                 Route::get('/sub-categories/listing','listing')->name('sub-categories.listing');
                 Route::get('/sub-categories/edit','get_sub_category')->name('sub-categories.edit');
