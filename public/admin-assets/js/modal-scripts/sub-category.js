@@ -67,6 +67,22 @@ $(document).ready(function(){
 
         if (flag) {
             console.log('form filled');
+            $.ajax({
+                url: add_sub_category,
+                method: 'get',
+                type:    'get',
+                data:   {
+                    _token :  $("[name='_token']").val(),
+                    category: $('#categories').val(),
+                    name:     $('#name').val(),
+                    slug:     $('#slug').val(),
+                    notes:    $('#status').val(),
+                },
+                dataType: 'json',
+                success: function(response){
+                    console.log(response);
+                }
+            })
         } else {
             return false;
         }
