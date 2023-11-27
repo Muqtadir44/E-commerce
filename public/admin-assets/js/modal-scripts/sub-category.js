@@ -82,25 +82,25 @@ $(document).ready(function(){
         if (flag) {
             console.log('form filled');
             $.ajax({
-                url: add_sub_category,
-                method: 'get',
-                type:    'get',
-                data:   {
+                url    : add_sub_category,
+                method : 'get',
+                type   : 'get',
+                data   :   {
                     _token   : $("[name='_token']").val(),
                     category : $('#categories').val(),
                     name     : $('#name').val(),
                     slug     : $('#slug').val(),
                     notes    : $('#status').val(),
                 },
-                dataType: 'json',
-                error: (err) => {
+                dataType     : 'json',
+                error        : (err) => {
                     console.log(err);
                     if (err.responseJSON.errors.name) {
                         $('#name').addClass('is-invalid');
                         $('#error_name_msg').text(err.responseJSON.errors.name);
                     }
                 },
-                success: function(response){
+                success : function(response){
                     console.log(response);
                     $('#add-modal').modal('hide');
                     $('#sub-categories-table').DataTable().ajax.reload();
@@ -111,6 +111,6 @@ $(document).ready(function(){
         }
     })
     // adding sub-category --- End
-    
+
 
 })
