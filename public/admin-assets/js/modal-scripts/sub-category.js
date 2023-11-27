@@ -61,9 +61,9 @@ $(document).ready(function(){
         var category = $('#categories').val();
         var name     = $('#name').val();
 
-        if (category == "" && name == "" ) {
-            flag = false;
-        }
+        // if (category == "" && name == "" ) {
+        //     flag = false;
+        // }
 
         if (flag) {
             console.log('form filled');
@@ -79,8 +79,13 @@ $(document).ready(function(){
                     notes:    $('#status').val(),
                 },
                 dataType: 'json',
+                error: (err) => {
+                    console.log(err);
+                },
                 success: function(response){
                     console.log(response);
+                    $('#add-modal').modal('hide');
+                    $('#sub-categories-table').DataTable().ajax.reload();
                 }
             })
         } else {
