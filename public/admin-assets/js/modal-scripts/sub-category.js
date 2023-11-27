@@ -61,9 +61,20 @@ $(document).ready(function(){
         var category = $('#categories').val();
         var name     = $('#name').val();
 
-        // if (category == "" && name == "" ) {
-        //     flag = false;
-        // }
+        if (category == "" ) {
+            $('#categories').addClass('is-invalid');
+            flag = false;
+        }else{
+            $('#categories').removeClass('is-invalid');
+
+        }
+
+        if (name == "") {
+            $('#name').addClass('is-invalid');
+            flag = false;
+        } else {
+            $('#name').removeClass('is-invalid');
+        }
 
         if (flag) {
             console.log('form filled');
@@ -72,15 +83,19 @@ $(document).ready(function(){
                 method: 'get',
                 type:    'get',
                 data:   {
-                    _token :  $("[name='_token']").val(),
-                    category: $('#categories').val(),
-                    name:     $('#name').val(),
-                    slug:     $('#slug').val(),
-                    notes:    $('#status').val(),
+                    _token   : $("[name='_token']").val(),
+                    category : $('#categories').val(),
+                    name     : $('#name').val(),
+                    slug     : $('#slug').val(),
+                    notes    : $('#status').val(),
                 },
                 dataType: 'json',
                 error: (err) => {
                     console.log(err);
+                    if (err.responseJSON.errors.name) {
+                        $('#name').addClass('is-invalid');
+                        $('#error_name_msg').text(err.responseJSON.errors.name);
+                    }
                 },
                 success: function(response){
                     console.log(response);
