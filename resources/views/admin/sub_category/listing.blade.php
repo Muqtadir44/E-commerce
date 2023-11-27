@@ -44,7 +44,9 @@
     @endsection
 @section('custom_js')
 <script>
+
     var sub_categories_listing   = '{{route('sub-categories.listing')}}'
+    var add_sub_category         = '{{route('sub-categories.add')}}'
     var sub_categories_edit      = '{{route('sub-categories.update')}}'
     var sub_categories_delete    = '{{route('sub-categories.delete')}}'
 </script>
