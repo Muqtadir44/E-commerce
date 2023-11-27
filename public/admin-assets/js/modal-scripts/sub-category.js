@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    // Yajra DataTable --- Start
     var SubCategoryTable = $('#sub-categories-table').DataTable({
         ordering: false,
         searching: true,
@@ -24,16 +25,18 @@ $(document).ready(function(){
         }
     ]
     })
+    // Yajra DataTable --- End
+
 
     // loading sub-category add modal and fetching all catgories
     $(document).on('click','#add',function(e){
         e.preventDefault();
         $.ajax({
-            url:       $(this).data('route'),
-            type:      'get',
-            method:    'get',
-            dataType:  'json',
-            success: function(response){
+            url      :   $(this).data('route'),
+            type     :  'get',
+            method   :  'get',
+            dataType :  'json',
+            success  : function(response){
                 categories = response.categories;
                 var selectElement = $('#categories'); // Store the select element reference
                 selectElement.empty();
@@ -52,7 +55,7 @@ $(document).ready(function(){
         })
     })
 
-    // adding sub-category
+    // adding sub-category --- Start
     $(document).on('click','#add-subCategory',function(e){
         e.preventDefault();
 
@@ -107,4 +110,7 @@ $(document).ready(function(){
             return false;
         }
     })
+    // adding sub-category --- End
+    
+
 })
