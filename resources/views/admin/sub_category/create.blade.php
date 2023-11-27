@@ -19,6 +19,7 @@
                         <div class="mb-3">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                            <span id="error_name_msg"></span>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -29,7 +30,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="mb-3">
-                            <label for="email">Status</label>
+                            <label>Status</label>
                             <select name="status" id="status" class="form-control">
                                 <option value="Active">Active</option>
                                 <option value="Inactive">Inactive</option>
