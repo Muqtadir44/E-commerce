@@ -125,4 +125,23 @@ $(document).ready(function(){
     // adding sub-category --- End
 
 
+
+    // edit sub-category --- Start
+
+    $(document).on('click','#get_sub_category',function(e){
+        e.preventDefault();
+        alert('working');
+    })
+
+    // edit sub-category --- End
+
+
+        // Delete sub-category --- Start
+
+        $(document).on('click','#delete_sub_category',function(e){
+            e.preventDefault();
+            alert('delworking');
+        })
+
+        // Delete sub-category --- End
 })
