@@ -20,13 +20,17 @@
             @include('admin.message')
             <div class="card">
                 <div class="card-body table-responsive">
-                    <table id="sub-categories-table" class="no-wrap table table-hover  w-100">
+                    <table id="sub-categories-table" class="table table-hover text-nowrap w-100">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Slug</th>
+                                <th>Status</th>
                                 <th>Created at</th>
+                                <th>Updated at</th>
+                                <th>Action</th>
+
                             </tr>
                         </thead>
                     </table>
