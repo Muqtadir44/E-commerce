@@ -9,19 +9,31 @@ $(document).ready(function(){
         ajax: sub_categories_listing,
         columns: [{
             data: 'id',
-            name: 'id'
+            name: 'id',
         },
         {
             data: 'name',
-            name: 'name'
+            name: 'name',
         },
         {
             data: 'slug',
             name: 'slug'
         },
         {
+            data: 'status',
+            name: 'status',
+        },
+        {
             data: 'created_at',
-            name: 'created_at'
+            name: 'created_at',
+        },
+        {
+            data: 'updated_at',
+            name: 'updated_at',
+        },
+        {
+            data: 'action',
+            name: 'action'
         }
     ]
     })
