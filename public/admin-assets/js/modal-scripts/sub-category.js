@@ -130,7 +130,20 @@ $(document).ready(function(){
 
     $(document).on('click','#get_sub_category',function(e){
         e.preventDefault();
-        alert('working');
+        // alert('working');
+        $('#edit-modal').modal('show');
+        $.ajax({
+            url : $(this).data('route'),
+            type: 'get',
+            method: 'get',
+            error: (err) => {
+                console.log(err)
+             },
+            success: function(response){
+                console.log(response);
+                
+            }
+        })
     })
 
     // edit sub-category --- End
