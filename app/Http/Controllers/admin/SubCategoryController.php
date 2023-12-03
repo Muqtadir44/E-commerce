@@ -10,12 +10,13 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SubCategoryController extends Controller
 {
-    
+
 
     public function index(){
         return view('admin.sub_category.listing');
     }
     public function listing(Request $request){
+
         $sub_category = SubCategory::query()->get();
         return DataTables::of($sub_category)
         ->addIndexColumn()
@@ -84,8 +85,9 @@ class SubCategoryController extends Controller
         return response()->json($sub_category);
     }
 
-    public function get_sub_category(){
-
+    public function get_sub_category($id){
+        $sub_category = SubCategory::find($id);
+        return response()->json($sub_category);
     }
 
     public function update(){
