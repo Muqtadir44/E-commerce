@@ -10,6 +10,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SubCategoryController extends Controller
 {
+    
 
     public function index(){
         return view('admin.sub_category.listing');
