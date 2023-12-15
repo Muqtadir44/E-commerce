@@ -78,6 +78,7 @@ class CategoryController extends Controller
                 $category-> image = $ImageName;
             }
 
+
             $category->save();
             $request->session()->flash('success','Category Created Successfully');
 
@@ -102,17 +103,6 @@ class CategoryController extends Controller
 
     public function update(Request $request){
 
-        // $category = category::find($request->category_id);
-        // $update_category = [
-        //     'name'   => $request->category_name,
-        //     'slug'   => $request->slug,
-        //     'status' => $request->status
-        // ];
-        // $category->update($update_category);
-        // return response()->json([
-        //     'status'  => true,
-        //     'message' => 'Category Updated Successfully'
-        // ]);
         $category = category::find($request->category_id);
         if (empty($category)) {
             return response()->json([
@@ -138,15 +128,11 @@ class CategoryController extends Controller
             if (!empty($request->image_id)) {
                 $tempImage     = TempImage::find($request->image_id);
                 $ImageName  = $tempImage->name;
-                // $extArray      = explode('.',$tempImage);
-                // $ext           = last($extArray);
 
-                // $sPath = public_path().'/temp/'.$tempImage->name;
                 $sPath = public_path().'/uploads/category/'.$ImageName;
                 $dPath = public_path().'/uploads/category/thumb/'.$ImageName;
-                // File::copy($sPath,$dPath);
+
                 $img = Image::make($sPath);
-                // $img->resize(450, 600);
                 $img->fit(450, 600, function ($constraint) {
                     $constraint->upsize();
                 });
