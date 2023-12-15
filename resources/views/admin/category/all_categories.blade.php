@@ -41,7 +41,9 @@
 @section('custom_js')
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
     {{$dataTable->scripts(attributes:['type' => 'module'])}}
+    
     <script>
         $(document).on('click','.edit-btn',function(e){
             e.preventDefault();
