@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md">
                         <div class="mb-3">
-                            <button type="button" id="add-subCategory" class="btn btn-primary">Update</button>
+                            <button type="submit" id="add-subCategory" class="btn btn-primary">Update</button>
                         </div>
                     </div>
                 </div>
