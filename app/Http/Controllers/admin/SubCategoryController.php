@@ -10,7 +10,9 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SubCategoryController extends Controller
 {
+
     public function listing(Request $request){
+        $categories = category::get();
 
         if ($request->ajax()) {
             $sub_category = SubCategory::query()->get();
@@ -51,7 +53,7 @@ class SubCategoryController extends Controller
             ->rawColumns(['status','action','created_at','updated_at'])
             ->make(true);
         }
-        return view('admin.sub_category.listing');
+        return view('admin.sub_category.listing', compact('categories'));
     }
 
 
