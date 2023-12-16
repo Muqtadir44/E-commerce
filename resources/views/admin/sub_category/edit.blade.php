@@ -6,13 +6,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="" id="edit_sub_category_form">
+            <form id="edit_sub_category_form">
                 @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label for="name">Category</label>
-                            <select class="form-control" name="" id="edit_categories"></select>
+                            <select class="form-control" name="" id="edit_categories">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
