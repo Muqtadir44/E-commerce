@@ -142,8 +142,16 @@ $(document).ready(function(){
             success: function(response){
                 console.log(response);
                 $('#edit_categories').val(response.category_id)
+                $('#edit_name').val(response.name);
+                $('#edit_slug').val(response.slug);
+                $('#edit_status').val(response.status);
             }
         })
+    })
+
+    $('#edit_sub_category_form').submit(function(e){
+        e.preventDefault();
+        alert()
     })
 
     // edit sub-category --- End
