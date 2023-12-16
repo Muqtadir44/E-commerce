@@ -90,8 +90,12 @@ class SubCategoryController extends Controller
         return response()->json($sub_category);
     }
 
-    public function update(){
+    public function update(Request $request){
 
+        $request->validate([
+            'category' => 'required',
+            'name' => 'required',
+        ]);
     }
 
     public function delete(){
