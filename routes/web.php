@@ -68,10 +68,10 @@ Route::prefix('admin')->group(function(){
 
             Route::controller(SubCategoryController::class)->group(function(){
                 Route::get('/sub-categories/get','getCategories')->name('getCategories');
-                Route::get('/sub-categories/add','add')->name('sub-categories.add');
+                Route::post('/sub-categories/add','add')->name('sub-categories.add');
                 Route::get('/sub-categories/listing','listing')->name('sub-categories.listing');
                 Route::get('/sub-categories/{id}','get_sub_category')->name('sub-categories.get');
-                Route::get('/sub-categories/update','update')->name('sub-categories.update');
+                Route::post('/sub-categories/update','update')->name('sub-categories.update');
                 Route::get('/sub-categories/delete/{id}','delete')->name('sub-categories.delete');
 
             });
