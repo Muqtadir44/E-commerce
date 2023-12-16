@@ -95,8 +95,8 @@ $(document).ready(function(){
             console.log('form filled');
             $.ajax({
                 url    : add_sub_category,
-                method : 'get',
-                type   : 'get',
+                type   : 'post',
+                method : 'post',
                 data   :   {
                     _token   : $("[name='_token']").val(),
                     category : $('#categories').val(),
@@ -132,6 +132,12 @@ $(document).ready(function(){
         e.preventDefault();
         // alert('working');
         $('#edit-modal').modal('show');
+        $('#edit_slug').attr('readonly',true)
+
+        $(document).on('blur','#edit_name',function(){
+            var name = $('#edit_name').val();
+            $('#edit_slug').val(name)
+        })
         $.ajax({
             url : $(this).data('route'),
             type: 'get',
@@ -151,7 +157,30 @@ $(document).ready(function(){
 
     $('#edit_sub_category_form').submit(function(e){
         e.preventDefault();
-        alert()
+        $.ajax({
+            url : sub_categories_edit,
+            data: {
+                _token      : $("[name='_token']").val(),
+                category    : $('#edit_categories').val(),
+                name        : $('#edit_name').val(),
+                slug        : $('#edit_slug').val(),
+                status      : $('#edit_status').val()
+            },
+            type : 'post',
+            method : 'post',
+            error: (err) => {
+                console.log(err)
+                if (err.responseJSON.errors.category) {
+                    $('#edit_categories').addClass('is-invalid');
+                }
+                if (err.responseJSON.errors.name) {
+                    $('#edit_name').addClass('is-invalid');
+                }
+            },
+            success : function(response){
+                console.log(response)
+            }
+        })
     })
 
     // edit sub-category --- End
