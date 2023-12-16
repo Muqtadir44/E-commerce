@@ -141,7 +141,7 @@ $(document).ready(function(){
              },
             success: function(response){
                 console.log(response);
-
+                $('#edit_categories').val(response.category_id)
             }
         })
     })
@@ -155,6 +155,6 @@ $(document).ready(function(){
             e.preventDefault();
             alert('delworking');
         })
-        
+
         // Delete sub-category --- End
 })
